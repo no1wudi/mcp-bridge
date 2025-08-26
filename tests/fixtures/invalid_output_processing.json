@@ -1,0 +1,28 @@
+{
+  "tools": {
+    "compile": {
+      "description": "Compile source code",
+      "command": "gcc",
+      "cwd": "/tmp",
+      "timeout": {
+        "total": 30000,
+        "inactive": 10000
+      },
+      "streamOutput": true,
+      "outputProcessing": {
+        "extractor": {
+          "type": "invalid_type",
+          "patterns": {
+            "errors": ["error:"],
+            "warnings": ["warning:"]
+          }
+        },
+        "formatOutput": true
+      },
+      "resultFormat": {
+        "successMessage": "Compilation successful",
+        "errorMessage": "Compilation failed"
+      }
+    }
+  }
+}

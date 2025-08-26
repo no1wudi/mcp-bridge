@@ -1,0 +1,8 @@
+{
+  "tools": {
+    "simple-tool": {
+      "description": "A simple tool",
+      "command": "echo"
+    }
+  }
+}

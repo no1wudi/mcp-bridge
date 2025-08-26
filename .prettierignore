@@ -1,0 +1,2 @@
+# Ignore JSON files as they are test data and should not be reformatted
+*.json

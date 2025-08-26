@@ -1,0 +1,42 @@
+{
+  "tools": {
+    "compile": {
+      "description": "Compile source code",
+      "command": "gcc",
+      "cwd": "/tmp",
+      "timeout": {
+        "total": 30000,
+        "inactive": 10000
+      },
+      "streamOutput": true,
+      "outputProcessing": {
+        "extractor": {
+          "type": "gcc",
+          "patterns": {
+            "errors": ["error:"],
+            "warnings": ["warning:"]
+          }
+        },
+        "formatOutput": true,
+        "logLines": "15"
+      },
+      "resultFormat": {
+        "successMessage": "Compilation successful",
+        "errorMessage": "Compilation failed"
+      },
+      "parameters": [
+        {
+          "name": "source",
+          "type": "string",
+          "description": "Source file to compile"
+        },
+        {
+          "name": "optimization",
+          "type": "number",
+          "default": 2,
+          "description": "Optimization level"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "mcp-bridge",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "MCP server for cli tools",
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-bridge": "dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "start": "tsx src/cli.ts",
+    "dev": "tsx src/cli.ts --verbose",
+    "test": "tsx tests/test.ts",
+    "test:integration": "tsx tests/integration/integration.test.ts",
+    "lint": "eslint src/ tests/",
+    "format": "prettier --write src/ tests/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.4",
+    "node-pty": "^1.0.0",
+    "typescript": "^5.9.2",
+    "yargs": "^18.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
+    "@types/yargs": "^17.0.33",
+    "eslint": "^9.34.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.5",
+    "typescript-eslint": "^8.40.0"
+  }
+}

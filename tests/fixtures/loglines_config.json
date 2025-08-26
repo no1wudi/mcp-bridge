@@ -1,0 +1,25 @@
+{
+  "tools": {
+    "tool-with-loglines": {
+      "description": "A tool with logLines configuration",
+      "command": "echo",
+      "cwd": "/tmp",
+      "timeout": {
+        "total": 30000,
+        "inactive": 10000
+      },
+      "streamOutput": false,
+      "outputProcessing": {
+        "extractor": {
+          "type": "gcc"
+        },
+        "formatOutput": false,
+        "logLines": "15"
+      },
+      "resultFormat": {
+        "successMessage": "Operation completed",
+        "errorMessage": "Operation failed"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "tools": {
+    "list_current_dir": {
+      "description": "List files in current directory",
+      "command": "ls",
+      "cwd": "{{cwd}}",
+      "timeout": {
+        "total": 10000,
+        "inactive": 5000
+      },
+      "streamOutput": true,
+      "outputProcessing": {
+        "extractor": {
+          "type": "custom"
+        },
+        "formatOutput": false
+      },
+      "resultFormat": {
+        "successMessage": "Directory listing successful",
+        "errorMessage": "Directory listing failed"
+      }
+    },
+    "list_tmp_dir": {
+      "description": "List files in /tmp directory",
+      "command": "ls",
+      "cwd": "/tmp",
+      "timeout": {
+        "total": 10000,
+        "inactive": 5000
+      },
+      "streamOutput": true,
+      "outputProcessing": {
+        "extractor": {
+          "type": "custom"
+        },
+        "formatOutput": false
+      },
+      "resultFormat": {
+        "successMessage": "Directory listing successful",
+        "errorMessage": "Directory listing failed"
+      }
+    }
+  }
+}
