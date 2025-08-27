@@ -6,6 +6,10 @@ export function stripAnsi(str: string): string {
   return str.replace(ansiRegex, "");
 }
 
+export function normalizeLineEndings(output: string): string {
+  return output.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+}
+
 /**
  * Command execution states
  */

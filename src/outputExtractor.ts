@@ -1,4 +1,5 @@
 import type { ToolDefinition } from "./configTypes.js";
+import { normalizeLineEndings } from "./processExecutor.js";
 
 export interface ExtractionResult {
   errors: string[];
@@ -17,7 +18,7 @@ export class OutputExtractor implements IOutputExtractor {
   }
 
   public extract(output: string): ExtractionResult {
-    const lines = output.split("\n");
+    const lines = normalizeLineEndings(output).split("\n");
     const result: ExtractionResult = {
       errors: [],
       warnings: [],

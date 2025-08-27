@@ -132,7 +132,9 @@ export const testDefaults = async () => {
 
   // Test 4: Config with logLines property
   console.log("=== Test 4: Config with logLines property ===");
-  console.log("Description: Should correctly load config with logLines property");
+  console.log(
+    "Description: Should correctly load config with logLines property",
+  );
   try {
     const configPath = join(testDataPath, "loglines_config.json");
     const loader = new ConfigLoader(configPath);

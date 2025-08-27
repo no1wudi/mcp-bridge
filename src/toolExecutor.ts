@@ -1,5 +1,9 @@
 import type { ToolDefinition } from "./configTypes.js";
-import { executeProcess, ProcessState } from "./processExecutor.js";
+import {
+  executeProcess,
+  ProcessState,
+  normalizeLineEndings,
+} from "./processExecutor.js";
 import type { IOutputExtractor, ExtractionResult } from "./outputExtractor.js";
 import { OutputExtractor } from "./outputExtractor.js";
 
@@ -187,7 +191,7 @@ export class ToolExecutor {
       : undefined;
 
     if (isError && extractedLogs.errors.length === 0) {
-      const outputLines = fullOutput
+      const outputLines = normalizeLineEndings(fullOutput)
         .split("\n")
         .filter((line) => line.trim() !== "");
       const lastLines = logLines
@@ -239,7 +243,7 @@ export class ToolExecutor {
       : this.config.resultFormat.successMessage;
 
     if (isError || isSpecialCase) {
-      const outputLines = fullOutput
+      const outputLines = normalizeLineEndings(fullOutput)
         .split("\n")
         .filter((line) => line.trim() !== "");
 
